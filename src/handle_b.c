@@ -6,7 +6,7 @@
 /*   By: rdcm <rdcm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 21:55:04 by rdcm              #+#    #+#             */
-/*   Updated: 2025/11/18 23:37:56 by rdcm             ###   ########.fr       */
+/*   Updated: 2025/11/19 00:43:04 by rdcm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,20 @@ void	pb(t_stack *stack_b, t_stack *stack_a)
 	}
 	stack_a->size++;
 	ft_printf("pb\n");
+}
+
+void rb(t_stack *stack_b)
+{
+	t_stack_node *first_b;
+
+	if (stack_b->size < 2)
+		return ;
+	first_b = stack_b->head;
+	stack_b->head = stack_b->head->next;
+	stack_b->head->prev = NULL;
+	first_b->prev = stack_b->tail;
+	first_b->next = NULL;
+	stack_b->tail->next = first_b;
+	stack_b->tail = first_b;	
+	ft_printf("rb\n");
 }
