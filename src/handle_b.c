@@ -6,7 +6,7 @@
 /*   By: rdcm <rdcm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 21:55:04 by rdcm              #+#    #+#             */
-/*   Updated: 2025/11/19 00:43:04 by rdcm             ###   ########.fr       */
+/*   Updated: 2025/11/20 23:46:19 by rdcm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void sb(t_stack *stack_b)
 	ft_printf("sb\n");
 }
 
-void	pb(t_stack *stack_b, t_stack *stack_a)
+void	pb(t_stack *stack_a, t_stack *stack_b)
 {
 	t_stack_node	*first_a;
 
@@ -46,21 +46,21 @@ void	pb(t_stack *stack_b, t_stack *stack_a)
 	else
 		stack_a->tail = NULL;
 	stack_a->size--;
-	if (stack_a->size == 0)
+	if (stack_b->size == 0)
 	{
-		stack_a->head = first_a;
-		stack_a->tail = first_a;
+		stack_b->head = first_a;
+		stack_b->tail = first_a;
 		first_a->next = NULL;
 		first_a->prev = NULL;
 	}
 	else
 	{
-		first_a->next = stack_a->head;
-		stack_a->head->prev = first_a;
+		first_a->next = stack_b->head;
+		stack_b->head->prev = first_a;
 		first_a->prev = NULL;
-		stack_a->head = first_a;
+		stack_b->head = first_a;
 	}
-	stack_a->size++;
+	stack_b->size++;
 	ft_printf("pb\n");
 }
 
@@ -78,4 +78,20 @@ void rb(t_stack *stack_b)
 	stack_b->tail->next = first_b;
 	stack_b->tail = first_b;	
 	ft_printf("rb\n");
+}
+
+void rrb(t_stack *stack_b)
+{
+	t_stack_node *last_b;
+	
+	if (stack_b->size < 2)
+		return ;
+	last_b = stack_b->tail;
+	stack_b->tail = stack_b->tail->prev;
+	stack_b->tail->next = NULL;
+	last_b->next = stack_b->head;
+	last_b->prev = NULL;
+	stack_b->head->prev = last_b;
+	stack_b->head = last_b;
+	ft_printf("rrb\n");
 }

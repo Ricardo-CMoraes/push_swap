@@ -6,7 +6,7 @@
 /*   By: rdcm <rdcm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 22:49:10 by rdcm              #+#    #+#             */
-/*   Updated: 2025/11/18 21:44:43 by rdcm             ###   ########.fr       */
+/*   Updated: 2025/11/20 23:51:27 by rdcm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,12 @@ int	main(int argc, char **argv)
 	if (!stack_a)
 		return (1);
 	stack_b = (t_stack *)malloc(sizeof(t_stack));
-    if (!stack_b)
-        return (1);
+	if (!stack_b)
+		return (1);
 	set_stack(stack_b);
-	
-	// Aqui virá seu algoritmo de ordenação
-    // ...
-    
-    // Lembre-se de liberar TUDO no final!
-    // free_stack(stack_a);
-    // free(stack_b);
+	sort(stack_a, stack_b);
+	ft_printf("Após Ordenar:\n");
+	print_stack(stack_a);
+	free_stack(stack_a);
+	free(stack_b);
 }

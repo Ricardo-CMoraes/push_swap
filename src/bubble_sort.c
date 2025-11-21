@@ -1,48 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_stack.c                                       :+:      :+:    :+:   */
+/*   bubble_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rdcm <rdcm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/17 20:40:37 by rdcm              #+#    #+#             */
-/*   Updated: 2025/11/20 21:58:21 by rdcm             ###   ########.fr       */
+/*   Created: 2025/11/20 17:54:01 by rdcm              #+#    #+#             */
+/*   Updated: 2025/11/20 18:06:49 by rdcm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	set_stack(t_stack *stack)
+void swap_nodes(t_discretized *a, t_discretized *b)
 {
-	stack->head = NULL;
-	stack->tail = NULL;
-	stack->size = 0;
+	t_discretized temp;
+
+	temp = *a;
+	*a = *b;
+	*b = temp;
 }
 
-t_stack	*init_stack(int argc, char **argv)
+void bubble_sort(t_discretized *array, int size)
 {
-	t_stack	*stack;
-	char	**tmp;
-	int		i;
+	int i;
+	int j;
+	int swapped;
 
-	stack = (t_stack *)malloc(sizeof(t_stack));
-	if (!stack)
-		return (NULL);
-	set_stack(stack);
 	i = 0;
-	if (argc == 2)
-		tmp = ft_split(argv[1], ' ');
-	else
+	while (i < size - 1)
 	{
-		i = 1;
-		tmp = argv;
-	}
-	while (tmp[i])
-	{
-		stack_add(ft_atoi(tmp[i]), stack);
+		swapped = 0;
+		j = 0;
+		while (j < size - i - 1)
+		{
+			if (array[j].value > array[j + 1].value)
+			{
+				swap_nodes(&array[j], &array[j + 1]);
+				swapped = 1;
+			}
+			j++;
+		}
+		if (swapped == 0)
+			break;
 		i++;
 	}
-	if (argc == 2)
-		free_array(tmp);
-	return (stack);
 }

@@ -1,18 +1,20 @@
-NAME = so_long
-NAME_BONUS = so_long_bonus
+NAME = push_swap
+NAME_BONUS = 
 
 CC = cc
-CFLAGS = -g -Wall -Wextra -Werror -Imlx_linux -Ilibft -Iincludes
+CFLAGS = -g -Wall -Wextra -Werror -Ilibft -Iincludes
 
-SRC = src/so_long.c \
-		src/clear.c \
-		src/render_map.c\
-		src/handle_map.c\
-		src/validate_arguments.c\
-		src/game.c\
-		src/interaction.c\
-		src/validate_map.c\
-		src/utils.c
+SRC = src/bubble_sort.c \
+		src/discretization.c \
+		src/handle_a.c \
+		src/handle_b.c \
+		src/handle_both.c \
+		src/handle_linked_list.c \
+		src/init_stack.c \
+		src/push_swap.c \
+		src/radix_sort.c \
+		src/utils.c \
+		src/validate.c
 
 SRC_BONUS = src_bonus/so_long_bonus.c \
 		src_bonus/clear_bonus.c \
@@ -30,14 +32,10 @@ OBJ_BONUS = $(SRC_BONUS:.c=.o)
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
-MLX_DIR = mlx_linux
-
-MLX_FLAGS = -L$(MLX_DIR) -lmlx_Linux -L/usr/lib -lXext -lX11 -lm -lz
-
 all: $(NAME)
 
 $(NAME): $(OBJ) $(LIBFT)
-	$(CC) $(OBJ) $(LIBFT) $(MLX_FLAGS) -o $(NAME)
+	$(CC) $(OBJ) $(LIBFT) -o $(NAME)
 
 $(LIBFT):
 	make -C $(LIBFT_DIR)
@@ -48,7 +46,7 @@ $(LIBFT):
 bonus: $(NAME_BONUS)
 
 $(NAME_BONUS): $(OBJ_BONUS) $(LIBFT)
-	$(CC) $(OBJ_BONUS) $(LIBFT) $(MLX_FLAGS) -o $(NAME_BONUS)
+	$(CC) $(OBJ_BONUS) $(LIBFT) -o $(NAME_BONUS)
 
 clean:
 	rm -f $(OBJ) $(OBJ_BONUS)

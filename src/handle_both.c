@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_both                                        :+:      :+:    :+:   */
+/*   handle_both.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rdcm <rdcm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 22:19:32 by rdcm              #+#    #+#             */
-/*   Updated: 2025/11/18 22:21:09 by rdcm             ###   ########.fr       */
+/*   Updated: 2025/11/20 23:37:57 by rdcm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,20 @@
 void ss(t_stack *stack_a, t_stack *stack_b)
 {
 	sa(stack_a);
-	sa(stack_b);
+	sb(stack_b);
 	ft_printf("ss\n");
+}
+
+void rr(t_stack *stack_a, t_stack *stack_b)
+{
+	ra(stack_a);
+	rb(stack_b);
+	ft_printf("rr\n");
+}
+
+void rrr(t_stack *stack_a, t_stack *stack_b)
+{
+	rra(stack_a);
+	rrb(stack_b);
+	ft_printf("rr\n");
 }
