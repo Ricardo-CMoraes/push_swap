@@ -6,7 +6,7 @@
 /*   By: rdcm <rdcm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 22:49:10 by rdcm              #+#    #+#             */
-/*   Updated: 2025/11/20 23:51:27 by rdcm             ###   ########.fr       */
+/*   Updated: 2025/11/21 00:02:06 by rdcm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,3 +33,7 @@ int	main(int argc, char **argv)
 	free_stack(stack_a);
 	free(stack_b);
 }
+// Necessário implementar código para lista com menos de 6 itens.
+// Ajustar Makeflie
+// Remover função que imprime stack
+// Revisar cabeçalhos
