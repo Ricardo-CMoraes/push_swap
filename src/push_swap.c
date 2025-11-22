@@ -6,7 +6,7 @@
 /*   By: rida-cos <rida-cos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 22:49:10 by rdcm              #+#    #+#             */
-/*   Updated: 2025/11/22 14:33:47 by rida-cos         ###   ########.fr       */
+/*   Updated: 2025/11/22 15:24:46 by rida-cos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,3 @@ int	main(int argc, char **argv)
 	free_stack(stack_a);
 	free(stack_b);
 }
-// Revisar Validação da Entrada
-// Passar testes da 42
