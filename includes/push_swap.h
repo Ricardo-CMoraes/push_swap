@@ -6,7 +6,7 @@
 /*   By: rdcm <rdcm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 22:39:55 by rdcm              #+#    #+#             */
-/*   Updated: 2025/11/22 00:06:58 by rdcm             ###   ########.fr       */
+/*   Updated: 2025/11/22 00:55:18 by rdcm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include "libft.h"
 # include <stdlib.h>
-# include <stdio.h>
 # include <unistd.h>
 
 # define INT_MAX 2147483647
@@ -89,7 +88,7 @@ void	check_input(int argc, char **argv);
 
 
 
-void print_stack(t_stack *stack);
+//void print_stack(t_stack *stack);
 
 
 #endif
