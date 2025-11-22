@@ -3,14 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   validate.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rdcm <rdcm@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: rida-cos <rida-cos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 22:53:12 by rdcm              #+#    #+#             */
-/*   Updated: 2025/11/16 23:24:20 by rdcm             ###   ########.fr       */
+/*   Updated: 2025/11/22 12:23:17 by rida-cos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	count_arg(char **array)
+{
+	int	i;
+
+	i = 0;
+	while (array[i])
+		i++;
+	return (i);
+}
 
 int	check_doubles(char **argv)
 {
@@ -60,7 +70,7 @@ void	check_input(int argc, char **argv)
 	if (argc == 2)
 		tmp_array = ft_split(argv[1], ' ');
 	else
-		tmp_array = argv + 1; //??
+		tmp_array = argv + 1;
 	while (tmp_array[i])
 	{
 		tmp_number = ft_atoi(tmp_array[i]);

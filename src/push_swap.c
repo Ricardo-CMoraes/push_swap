@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rdcm <rdcm@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: rida-cos <rida-cos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 22:49:10 by rdcm              #+#    #+#             */
-/*   Updated: 2025/11/22 00:22:44 by rdcm             ###   ########.fr       */
+/*   Updated: 2025/11/22 12:23:49 by rida-cos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,10 @@ int	main(int argc, char **argv)
 	stack_b = (t_stack *)malloc(sizeof(t_stack));
 	if (!stack_b)
 		return (1);
-	set_stack(stack_b);
+	set_stack_null(stack_b);
 	sort(stack_a, stack_b);
-	//ft_printf("Após Ordenar:\n");
-	//print_stack(stack_a);
 	free_stack(stack_a);
 	free(stack_b);
 }
-// Ajustar Makefile
-// Remover função que imprime stack
-// Revisar cabeçalhos
 // Revisar Validação da Entrada
 // Passar testes da 42
-// Checar norma

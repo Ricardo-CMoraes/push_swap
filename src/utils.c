@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rdcm <rdcm@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: rida-cos <rida-cos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 23:09:00 by rdcm              #+#    #+#             */
-/*   Updated: 2025/11/20 22:08:57 by rdcm             ###   ########.fr       */
+/*   Updated: 2025/11/22 12:23:00 by rida-cos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,37 +18,33 @@ void	error_msg(char *str)
 	exit (0);
 }
 
-int	count_arg(char **array)
+void	set_init_stack(t_stack *stack, t_stack_node *node)
 {
-	int	i;
-
-	i = 0;
-	while (array[i])
-		i++;
-	return (i);
+	stack->head = node;
+	stack->tail = node;
+	node->next = NULL;
+	node->prev = NULL;
 }
 
 void	free_array(char **array)
 {
-    int i;
+	int	i;
 
-    if (!array)
-        return ; // Se o array já for NULL, não faz nada.
-
-    i = 0;
-    while (array[i])
-    {
-        free(array[i]); // 1. Libera cada string (e.g., "1", "5", "2")
-        i++;
-    }
-    
-    free(array); // 2. Libera o ponteiro do array principal (char **)
+	if (!array)
+		return ;
+	i = 0;
+	while (array[i])
+	{
+		free(array[i]);
+		i++;
+	}
+	free(array);
 }
 
-void free_stack(t_stack *stack)
+void	free_stack(t_stack *stack)
 {
-	t_stack_node *current;
-	t_stack_node *tmp;
+	t_stack_node	*current;
+	t_stack_node	*tmp;
 
 	if (!stack)
 		return ;
@@ -62,44 +58,17 @@ void free_stack(t_stack *stack)
 	free(stack);
 }
 
-
-int get_max_bits(int size)
+int	get_max_bits(int size)
 {
-	int max_val;
-	int bits;
+	int	max_val;
+	int	bits;
 
-	max_val = size - 1; // O maior índice é N-1
+	max_val = size - 1;
 	bits = 0;
-
-	// Enquanto o valor máximo (índice) for maior que zero, 
-	// contamos os bits necessários.
 	while (max_val > 0)
 	{
-		max_val >>= 1; // Desloca 1 bit para a direita (divide por 2)
+		max_val >>= 1;
 		bits++;
 	}
 	return (bits);
-}
-
-
-void print_stack(t_stack *stack)
-{
-    t_stack_node *current;
-
-    if (!stack || !stack->head)
-    {
-        ft_printf("--- PILHA VAZIA ---\n");
-        return;
-    }
-
-    current = stack->head;
-    ft_printf("--- PILHA A (TOPO -> BASE) ---\n");
-    
-    // Percorre do head (topo) até a base (tail)
-    while (current)
-    {
-        ft_printf("  Valor: %d (Index: %d)\n", current->value, current->index);
-        current = current->next;
-    }
-    ft_printf("------------------------------\n");
 }

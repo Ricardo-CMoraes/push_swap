@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_a.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rdcm <rdcm@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: rida-cos <rida-cos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 21:54:45 by rdcm              #+#    #+#             */
-/*   Updated: 2025/11/20 23:44:58 by rdcm             ###   ########.fr       */
+/*   Updated: 2025/11/22 12:05:53 by rida-cos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,7 @@ void	pa(t_stack *stack_a, t_stack *stack_b)
 		stack_b->tail = NULL;
 	stack_b->size--;
 	if (stack_a->size == 0)
-	{
-		stack_a->head = first_b;
-		stack_a->tail = first_b;
-		first_b->next = NULL;
-		first_b->prev = NULL;
-	}
+		set_init_stack(stack_a, first_b);
 	else
 	{
 		first_b->next = stack_a->head;
@@ -64,9 +59,9 @@ void	pa(t_stack *stack_a, t_stack *stack_b)
 	ft_printf("pa\n");
 }
 
-void ra(t_stack *stack_a)
+void	ra(t_stack *stack_a)
 {
-	t_stack_node *first_a;
+	t_stack_node	*first_a;
 
 	if (stack_a->size < 2)
 		return ;
@@ -76,14 +71,14 @@ void ra(t_stack *stack_a)
 	first_a->prev = stack_a->tail;
 	first_a->next = NULL;
 	stack_a->tail->next = first_a;
-	stack_a->tail = first_a;	
+	stack_a->tail = first_a;
 	ft_printf("ra\n");
 }
 
-void rra(t_stack *stack_a)
+void	rra(t_stack *stack_a)
 {
-	t_stack_node *last_a;
-	
+	t_stack_node	*last_a;
+
 	if (stack_a->size < 2)
 		return ;
 	last_a = stack_a->tail;

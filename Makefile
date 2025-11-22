@@ -1,5 +1,4 @@
 NAME = push_swap
-NAME_BONUS = 
 
 CC = cc
 CFLAGS = -g -Wall -Wextra -Werror -Ilibft -Iincludes
@@ -17,21 +16,12 @@ SRC = src/bubble_sort.c \
 		src/utils.c \
 		src/validate.c
 
-SRC_BONUS = src_bonus/so_long_bonus.c \
-		src_bonus/clear_bonus.c \
-		src_bonus/render_map_bonus.c\
-		src_bonus/handle_map_bonus.c\
-		src_bonus/validate_arguments_bonus.c\
-		src_bonus/game_bonus.c\
-		src_bonus/interaction_bonus.c\
-		src_bonus/validate_map_bonus.c\
-		src_bonus/utils_bonus.c
-
 OBJ = $(SRC:.c=.o)
-OBJ_BONUS = $(SRC_BONUS:.c=.o)
 
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
+
+N ?= 500
 
 all: $(NAME)
 
@@ -44,21 +34,22 @@ $(LIBFT):
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-bonus: $(NAME_BONUS)
-
-$(NAME_BONUS): $(OBJ_BONUS) $(LIBFT)
-	$(CC) $(OBJ_BONUS) $(LIBFT) -o $(NAME_BONUS)
-
 clean:
-	rm -f $(OBJ) $(OBJ_BONUS)
+	rm -f $(OBJ)
 	make clean -C $(LIBFT_DIR)
 
 fclean: clean
-	rm -f $(NAME) $(NAME_BONUS)
+	rm -f $(NAME)
 	make fclean -C $(LIBFT_DIR)
 
 re: fclean all
 
-rebonus: fclean bonus
+teste:
+	@ARGS=$$(shuf -i 1-10000 -n $(N) | tr '\n' ' ' | sed 's/ $$//'); \
+	echo "Testing with $(N) numbers:"; \
+	echo "Total of commands:"; \
+	./push_swap "$$ARGS" | wc -l; \
+	echo "Results:"; \
+	./push_swap "$$ARGS" | ./checker_linux "$$ARGS"
 
 .PHONY: all clean fclean re

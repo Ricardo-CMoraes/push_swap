@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   handle_linked_list.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rdcm <rdcm@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: rida-cos <rida-cos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 20:47:49 by rdcm              #+#    #+#             */
-/*   Updated: 2025/11/18 21:47:02 by rdcm             ###   ########.fr       */
+/*   Updated: 2025/11/22 11:55:33 by rida-cos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack_node *new_node(int value)
+t_stack_node	*new_node(int value)
 {
 	t_stack_node	*node;
 
@@ -28,7 +28,7 @@ t_stack_node *new_node(int value)
 
 void	stack_add(int value, t_stack *stack)
 {
-	t_stack_node *node;
+	t_stack_node	*node;
 
 	node = new_node(value);
 	if (!node)

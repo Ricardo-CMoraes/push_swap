@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   sort_cases.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rdcm <rdcm@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: rida-cos <rida-cos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 22:22:35 by rdcm              #+#    #+#             */
-/*   Updated: 2025/11/22 00:13:56 by rdcm             ###   ########.fr       */
+/*   Updated: 2025/11/22 12:21:35 by rida-cos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void sa_rra(t_stack *stack)
+void	sa_rra(t_stack *stack)
 {
 	if (stack->tail->index == 0)
 	{
@@ -25,7 +25,8 @@ void sa_rra(t_stack *stack)
 		sa(stack);
 	}
 }
-void sort_3(t_stack *stack, int n_elem)
+
+void	sort_3(t_stack *stack, int n_elem)
 {
 	if (stack->head->index == n_elem - 1)
 	{
@@ -44,42 +45,41 @@ void sort_3(t_stack *stack, int n_elem)
 	else if (stack->head->index == n_elem - 3)
 	{
 		if (stack->tail->index == n_elem - 2)
-			sa_rra(stack);	
+			sa_rra(stack);
 		else if (stack->tail->index == n_elem - 1)
 			return ;
 	}
 }
 
-void push_target_to_b(t_stack *stack_a, t_stack *stack_b, int target)
+void	push_target_to_b(t_stack *stack_a, t_stack *stack_b, int target)
 {
-    t_stack_node *node;
-    int pos;
-    int rotations;
+	t_stack_node	*node;
+	int				pos;
+	int				rotations;
 
-    pos = 0;
-    node = stack_a->head;
-    while (node->index != target)
-    {
-        node = node->next;
-        pos++;
-    }
-    rotations = stack_a->size;
-
-    if (pos <= (rotations / 2))
-    {
-        while (pos--)
-            ra(stack_a);
-    }
-    else
-    {
-        rotations = rotations - pos;
-        while (rotations--)
-            rra(stack_a);
-    }
-    pb(stack_a, stack_b);
+	pos = 0;
+	node = stack_a->head;
+	while (node->index != target)
+	{
+		node = node->next;
+		pos++;
+	}
+	rotations = stack_a->size;
+	if (pos <= (rotations / 2))
+	{
+		while (pos--)
+			ra(stack_a);
+	}
+	else
+	{
+		rotations = rotations - pos;
+		while (rotations--)
+			rra(stack_a);
+	}
+	pb(stack_a, stack_b);
 }
 
-void sort_cases(t_stack *stack_a, t_stack *stack_b)
+void	sort_cases(t_stack *stack_a, t_stack *stack_b)
 {
 	if (stack_a->size == 1)
 		return ;
@@ -106,9 +106,9 @@ void sort_cases(t_stack *stack_a, t_stack *stack_b)
 	}
 }
 
-void sort(t_stack *stack_a, t_stack *stack_b)
+void	sort(t_stack *stack_a, t_stack *stack_b)
 {
-	t_discretized *tmp_array;
+	t_discretized	*tmp_array;
 
 	tmp_array = create_sorted_array(stack_a->head, stack_a->size);
 	fill_index(stack_a, tmp_array);

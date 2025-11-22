@@ -3,54 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   radix_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rdcm <rdcm@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: rida-cos <rida-cos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 18:36:26 by rdcm              #+#    #+#             */
-/*   Updated: 2025/11/22 00:07:06 by rdcm             ###   ########.fr       */
+/*   Updated: 2025/11/22 12:19:39 by rida-cos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void radix_sort(t_stack *a, t_stack *b)
+void	radix_sort(t_stack *a, t_stack *b)
 {
-    int max_bits;
-    int bit_pos; // i é o contador de bits (0, 1, 2, ...)
-    int j; // j é o contador de elementos
-    int size;
+	int	max_bits;
+	int	bit_pos;
+	int	j;
+	int	size;
 
-    size = a->size;
-    max_bits = get_max_bits(size); // Número total de iterações
-    bit_pos = 0;
-    while (bit_pos < max_bits) // Loop pelos bits (Ex: 0 até 8)
-    {
-        j = 0;
-        while (j < size) // Loop pelos elementos (N vezes)
-        {
-            // Verifica o i-ésimo bit do índice do elemento no topo de A.
-            // O operador '&' verifica se o bit i está "ligado" (1) ou "desligado" (0).
-            if (((a->head->index >> bit_pos) & 1) == 0)
-            {
-                // Bit é 0: move para a Pilha B (pb)
-                pb(a, b);
-            }
-            else
-            {
-                // Bit é 1: move para a base de A (ra)
-                ra(a);
-            }
-            j++;
-        }
-
-        // --- FASE DE RETORNO ---
-        // Todos os elementos com bit 'i' = 0 estão em B.
-        // Todos os elementos com bit 'i' = 1 estão em A (mas rotacionados).
-        
-        // Move TUDO de B de volta para A (pa)
-        while (b->size > 0)
-        {
-            pa(a, b);
-        }
-        bit_pos++; // Avança para o próximo bit
-    }
+	size = a->size;
+	max_bits = get_max_bits(size);
+	bit_pos = 0;
+	while (bit_pos < max_bits)
+	{
+		j = 0;
+		while (j < size)
+		{
+			if (((a->head->index >> bit_pos) & 1) == 0)
+				pb(a, b);
+			else
+				ra(a);
+			j++;
+		}
+		while (b->size > 0)
+			pa(a, b);
+		bit_pos++;
+	}
 }

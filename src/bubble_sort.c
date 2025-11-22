@@ -3,29 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   bubble_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rdcm <rdcm@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: rida-cos <rida-cos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 17:54:01 by rdcm              #+#    #+#             */
-/*   Updated: 2025/11/20 18:06:49 by rdcm             ###   ########.fr       */
+/*   Updated: 2025/11/22 11:53:08 by rida-cos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void swap_nodes(t_discretized *a, t_discretized *b)
+void	swap_nodes(t_discretized *a, t_discretized *b)
 {
-	t_discretized temp;
+	t_discretized	temp;
 
 	temp = *a;
 	*a = *b;
 	*b = temp;
 }
 
-void bubble_sort(t_discretized *array, int size)
+void	bubble_sort(t_discretized *array, int size)
 {
-	int i;
-	int j;
-	int swapped;
+	int	i;
+	int	j;
+	int	swapped;
 
 	i = 0;
 	while (i < size - 1)
@@ -42,7 +42,7 @@ void bubble_sort(t_discretized *array, int size)
 			j++;
 		}
 		if (swapped == 0)
-			break;
+			break ;
 		i++;
 	}
 }

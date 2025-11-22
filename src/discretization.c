@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   discretization.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rdcm <rdcm@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: rida-cos <rida-cos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 17:23:30 by rdcm              #+#    #+#             */
-/*   Updated: 2025/11/20 21:31:45 by rdcm             ###   ########.fr       */
+/*   Updated: 2025/11/22 11:53:59 by rida-cos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_discretized *create_sorted_array(t_stack_node *head, int size)
+t_discretized	*create_sorted_array(t_stack_node *head, int size)
 {
 	t_discretized	*tmp_array;
 	t_stack_node	*current;
@@ -20,8 +20,7 @@ t_discretized *create_sorted_array(t_stack_node *head, int size)
 
 	tmp_array = (t_discretized *)malloc(sizeof(t_discretized) * size);
 	if (!tmp_array)
-		return NULL;
-	
+		return (NULL);
 	current = head;
 	i = 0;
 	while (current)
@@ -41,7 +40,7 @@ t_discretized *create_sorted_array(t_stack_node *head, int size)
 	return (tmp_array);
 }
 
-void fill_index(t_stack *stack, t_discretized *tmp_array)
+void	fill_index(t_stack *stack, t_discretized *tmp_array)
 {
 	t_stack_node	*node;
 	int				i;
@@ -55,7 +54,7 @@ void fill_index(t_stack *stack, t_discretized *tmp_array)
 			if (node->value == tmp_array[i].value)
 			{
 				node->index = tmp_array[i].index;
-				break;
+				break ;
 			}
 			i++;
 		}
