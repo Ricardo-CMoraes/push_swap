@@ -6,7 +6,7 @@
 /*   By: rdcm <rdcm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 22:39:55 by rdcm              #+#    #+#             */
-/*   Updated: 2025/11/20 23:39:49 by rdcm             ###   ########.fr       */
+/*   Updated: 2025/11/22 00:06:58 by rdcm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,11 @@ void	set_stack(t_stack *stack);
 t_stack	*init_stack(int argc, char **argv);
 //radix_sort
 void radix_sort(t_stack *a, t_stack *b);
+//sort_cases
+void sa_rra(t_stack *stack);
+void sort_3(t_stack *stack, int n_elem);
+void push_target_to_b(t_stack *stack_a, t_stack *stack_b, int target);
+void sort_cases(t_stack *stack_a, t_stack *stack_b);
 void sort(t_stack *stack_a, t_stack *stack_b);
 //utils
 void	error_msg(char *str);

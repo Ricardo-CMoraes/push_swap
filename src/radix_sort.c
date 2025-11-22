@@ -6,7 +6,7 @@
 /*   By: rdcm <rdcm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 18:36:26 by rdcm              #+#    #+#             */
-/*   Updated: 2025/11/20 23:58:47 by rdcm             ###   ########.fr       */
+/*   Updated: 2025/11/22 00:07:06 by rdcm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,4 @@ void radix_sort(t_stack *a, t_stack *b)
         }
         bit_pos++; // Avança para o próximo bit
     }
-}
-
-void sort(t_stack *stack_a, t_stack *stack_b)
-{
-	t_discretized *tmp_array;
-
-	tmp_array = create_sorted_array(stack_a->head, stack_a->size);
-	fill_index(stack_a, tmp_array);
-	free(tmp_array);
-	radix_sort(stack_a, stack_b);
 }

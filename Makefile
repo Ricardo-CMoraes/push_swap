@@ -13,6 +13,7 @@ SRC = src/bubble_sort.c \
 		src/init_stack.c \
 		src/push_swap.c \
 		src/radix_sort.c \
+		src/sort_cases.c \
 		src/utils.c \
 		src/validate.c
 

@@ -6,7 +6,7 @@
 /*   By: rdcm <rdcm@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 22:49:10 by rdcm              #+#    #+#             */
-/*   Updated: 2025/11/21 00:02:06 by rdcm             ###   ########.fr       */
+/*   Updated: 2025/11/22 00:22:44 by rdcm             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,14 @@ int	main(int argc, char **argv)
 		return (1);
 	set_stack(stack_b);
 	sort(stack_a, stack_b);
-	ft_printf("Após Ordenar:\n");
-	print_stack(stack_a);
+	//ft_printf("Após Ordenar:\n");
+	//print_stack(stack_a);
 	free_stack(stack_a);
 	free(stack_b);
 }
-// Necessário implementar código para lista com menos de 6 itens.
-// Ajustar Makeflie
+// Ajustar Makefile
 // Remover função que imprime stack
 // Revisar cabeçalhos
+// Revisar Validação da Entrada
+// Passar testes da 42
+// Checar norma
