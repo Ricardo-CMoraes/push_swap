@@ -6,7 +6,7 @@
 /*   By: rida-cos <rida-cos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 22:39:55 by rdcm              #+#    #+#             */
-/*   Updated: 2025/11/22 13:14:19 by rida-cos         ###   ########.fr       */
+/*   Updated: 2025/11/22 16:06:48 by rida-cos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,48 +41,48 @@ typedef struct s_discretized
 	int	index;
 }	t_discretized;
 
-//bubble_sort
+//bubble_sort.c
 void			swap_nodes(t_discretized *a, t_discretized *b);
 void			bubble_sort(t_discretized *array, int size);
-//discretization
+//discretization.c
 t_discretized	*create_sorted_array(t_stack_node *head, int size);
 void			fill_index(t_stack *stack, t_discretized *tmp_array);
-//handle_a
+//handle_a.c
 void			sa(t_stack *stack_a, int print);
 void			pa(t_stack *stack_a, t_stack *stack_b);
 void			ra(t_stack *stack_a, int print);
 void			rra(t_stack *stack_a, int print);
-//handle_b
+//handle_b.c
 void			sb(t_stack *stack_b, int print);
 void			pb(t_stack *stack_a, t_stack *stack_b);
 void			rb(t_stack *stack_b, int print);
 void			rrb(t_stack *stack_b, int print);
-//handle_both
+//handle_both.c
 void			ss(t_stack *stack_a, t_stack *stack_b);
 void			rr(t_stack *stack_a, t_stack *stack_b);
 void			rrr(t_stack *stack_a, t_stack *stack_b);
-//handle_linked_list
+//handle_linked_list.c
 t_stack_node	*new_node(int value);
 void			stack_add(int value, t_stack *stack);
-//ini_stack
+//ini_stack.c
 void			set_stack_null(t_stack *stack);
 t_stack			*init_stack(int argc, char **argv);
-//radix_sort
+//radix_sort.c
 void			radix_sort(t_stack *a, t_stack *b);
-//sort_cases
+//sort_cases.c
 void			sa_rra(t_stack *stack);
 void			sort_3(t_stack *stack, int n_elem);
 void			push_target_to_b(t_stack *stack_a, t_stack *stack_b,
 					int target);
 void			sort_cases(t_stack *stack_a, t_stack *stack_b);
 void			sort(t_stack *stack_a, t_stack *stack_b);
-//utils
+//utils.c
 void			error_msg(char *str);
 void			set_init_stack(t_stack *stack, t_stack_node *node);
 void			free_array(char **array);
 void			free_stack(t_stack *stack);
 int				get_max_bits(int size);
-//validate
+//validate.c
 long			ft_atol(const char *str);
 int				count_arg(char **array);
 int				check_doubles(char **argv);
