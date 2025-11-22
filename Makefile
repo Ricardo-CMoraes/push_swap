@@ -44,7 +44,7 @@ fclean: clean
 
 re: fclean all
 
-teste:
+test:
 	@ARGS=$$(shuf -i 1-10000 -n $(N) | tr '\n' ' ' | sed 's/ $$//'); \
 	echo "Testing with $(N) numbers:"; \
 	echo "Total of commands:"; \
@@ -52,4 +52,4 @@ teste:
 	echo "Results:"; \
 	./push_swap "$$ARGS" | ./checker_linux "$$ARGS"
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re test
