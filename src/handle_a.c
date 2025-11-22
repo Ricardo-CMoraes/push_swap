@@ -6,13 +6,13 @@
 /*   By: rida-cos <rida-cos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 21:54:45 by rdcm              #+#    #+#             */
-/*   Updated: 2025/11/22 12:05:53 by rida-cos         ###   ########.fr       */
+/*   Updated: 2025/11/22 12:39:39 by rida-cos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_stack *stack_a)
+void	sa(t_stack *stack_a, int print)
 {
 	t_stack_node	*first;
 	t_stack_node	*second;
@@ -30,7 +30,8 @@ void	sa(t_stack *stack_a)
 		first->next->prev = first;
 	if (stack_a->size == 2)
 		stack_a->tail = first;
-	ft_printf("sa\n");
+	if (print == 1)
+		ft_printf("sa\n");
 }
 
 void	pa(t_stack *stack_a, t_stack *stack_b)
@@ -59,7 +60,7 @@ void	pa(t_stack *stack_a, t_stack *stack_b)
 	ft_printf("pa\n");
 }
 
-void	ra(t_stack *stack_a)
+void	ra(t_stack *stack_a, int print)
 {
 	t_stack_node	*first_a;
 
@@ -72,10 +73,11 @@ void	ra(t_stack *stack_a)
 	first_a->next = NULL;
 	stack_a->tail->next = first_a;
 	stack_a->tail = first_a;
-	ft_printf("ra\n");
+	if (print == 1)
+		ft_printf("ra\n");
 }
 
-void	rra(t_stack *stack_a)
+void	rra(t_stack *stack_a, int print)
 {
 	t_stack_node	*last_a;
 
@@ -88,5 +90,6 @@ void	rra(t_stack *stack_a)
 	last_a->prev = NULL;
 	stack_a->head->prev = last_a;
 	stack_a->head = last_a;
-	ft_printf("rra\n");
+	if (print == 1)
+		ft_printf("rra\n");
 }

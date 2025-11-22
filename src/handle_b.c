@@ -6,13 +6,13 @@
 /*   By: rida-cos <rida-cos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 21:55:04 by rdcm              #+#    #+#             */
-/*   Updated: 2025/11/22 12:07:36 by rida-cos         ###   ########.fr       */
+/*   Updated: 2025/11/22 12:39:17 by rida-cos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sb(t_stack *stack_b)
+void	sb(t_stack *stack_b, int print)
 {
 	t_stack_node	*first;
 	t_stack_node	*second;
@@ -30,7 +30,8 @@ void	sb(t_stack *stack_b)
 		first->next->prev = first;
 	if (stack_b->size == 2)
 		stack_b->tail = first;
-	ft_printf("sb\n");
+	if (print == 1)
+		ft_printf("sb\n");
 }
 
 void	pb(t_stack *stack_a, t_stack *stack_b)
@@ -59,7 +60,7 @@ void	pb(t_stack *stack_a, t_stack *stack_b)
 	ft_printf("pb\n");
 }
 
-void	rb(t_stack *stack_b)
+void	rb(t_stack *stack_b, int print)
 {
 	t_stack_node	*first_b;
 
@@ -72,10 +73,11 @@ void	rb(t_stack *stack_b)
 	first_b->next = NULL;
 	stack_b->tail->next = first_b;
 	stack_b->tail = first_b;
-	ft_printf("rb\n");
+	if (print == 1)
+		ft_printf("rb\n");
 }
 
-void	rrb(t_stack *stack_b)
+void	rrb(t_stack *stack_b, int print)
 {
 	t_stack_node	*last_b;
 
@@ -88,5 +90,6 @@ void	rrb(t_stack *stack_b)
 	last_b->prev = NULL;
 	stack_b->head->prev = last_b;
 	stack_b->head = last_b;
-	ft_printf("rrb\n");
+	if (print == 1)
+		ft_printf("rrb\n");
 }

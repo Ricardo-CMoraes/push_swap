@@ -6,11 +6,38 @@
 /*   By: rida-cos <rida-cos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 22:53:12 by rdcm              #+#    #+#             */
-/*   Updated: 2025/11/22 12:23:17 by rida-cos         ###   ########.fr       */
+/*   Updated: 2025/11/22 15:20:50 by rida-cos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+long	ft_atol(const char *str)
+{
+	int		sign;
+	long	nb;
+	int		i;
+
+	i = 0;
+	sign = 1;
+	nb = 0;
+	while (str[i] == ' ' || ((str[i] >= 9) && (str[i] <= 13)))
+		i++;
+	if ((str[i] == '-') || (str[i] == '+'))
+	{
+		if (str[i] == '-')
+			sign = -1;
+		i++;
+		if (str[i] == '-' || str[i] == '+')
+			return (0);
+	}
+	while ((str[i] >= '0') && (str[i] <= '9'))
+	{
+		nb = (nb * 10) + (str[i] - '0');
+		i++;
+	}
+	return (nb * sign);
+}
 
 int	count_arg(char **array)
 {
@@ -49,8 +76,10 @@ int	check_nbr(char *argv)
 	int	i;
 
 	i = 0;
-	if (argv[i] == '-')
+	if (argv[i] == '-' || argv[i] == '+')
 		i++;
+	if (argv[i] == '\0')
+		return (0);
 	while (argv[i])
 	{
 		if (!ft_isdigit(argv[i]))
@@ -73,13 +102,13 @@ void	check_input(int argc, char **argv)
 		tmp_array = argv + 1;
 	while (tmp_array[i])
 	{
-		tmp_number = ft_atoi(tmp_array[i]);
+		tmp_number = ft_atol(tmp_array[i]);
 		if (tmp_number < INT_MIN || tmp_number > INT_MAX)
-			error_msg("ERROR");
+			error_msg("Error");
 		if (!check_nbr(tmp_array[i]))
-			error_msg("ERROR");
+			error_msg("Error");
 		if (!check_doubles(tmp_array))
-			error_msg("ERROR");
+			error_msg("Error");
 		i++;
 	}
 	if (argc == 2)

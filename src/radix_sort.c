@@ -6,7 +6,7 @@
 /*   By: rida-cos <rida-cos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 18:36:26 by rdcm              #+#    #+#             */
-/*   Updated: 2025/11/22 12:19:39 by rida-cos         ###   ########.fr       */
+/*   Updated: 2025/11/22 12:40:21 by rida-cos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	radix_sort(t_stack *a, t_stack *b)
 			if (((a->head->index >> bit_pos) & 1) == 0)
 				pb(a, b);
 			else
-				ra(a);
+				ra(a, 1);
 			j++;
 		}
 		while (b->size > 0)

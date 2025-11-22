@@ -6,16 +6,17 @@
 /*   By: rida-cos <rida-cos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 23:09:00 by rdcm              #+#    #+#             */
-/*   Updated: 2025/11/22 12:23:00 by rida-cos         ###   ########.fr       */
+/*   Updated: 2025/11/22 13:21:39 by rida-cos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	error_msg(char *str)
+void	error_msg(char *msg)
 {
-	ft_printf("%s\n", str);
-	exit (0);
+	write(2, msg, ft_strlen(msg));
+	write(2, "\n", 1);
+	exit(1);
 }
 
 void	set_init_stack(t_stack *stack, t_stack_node *node)

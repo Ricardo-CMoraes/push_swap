@@ -6,7 +6,7 @@
 /*   By: rida-cos <rida-cos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 22:39:55 by rdcm              #+#    #+#             */
-/*   Updated: 2025/11/22 12:05:17 by rida-cos         ###   ########.fr       */
+/*   Updated: 2025/11/22 13:14:19 by rida-cos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,15 +48,15 @@ void			bubble_sort(t_discretized *array, int size);
 t_discretized	*create_sorted_array(t_stack_node *head, int size);
 void			fill_index(t_stack *stack, t_discretized *tmp_array);
 //handle_a
-void			sa(t_stack *stack_a);
+void			sa(t_stack *stack_a, int print);
 void			pa(t_stack *stack_a, t_stack *stack_b);
-void			ra(t_stack *stack_a);
-void			rra(t_stack *stack_a);
+void			ra(t_stack *stack_a, int print);
+void			rra(t_stack *stack_a, int print);
 //handle_b
-void			sb(t_stack *stack_b);
+void			sb(t_stack *stack_b, int print);
 void			pb(t_stack *stack_a, t_stack *stack_b);
-void			rb(t_stack *stack_b);
-void			rrb(t_stack *stack_b);
+void			rb(t_stack *stack_b, int print);
+void			rrb(t_stack *stack_b, int print);
 //handle_both
 void			ss(t_stack *stack_a, t_stack *stack_b);
 void			rr(t_stack *stack_a, t_stack *stack_b);
@@ -83,6 +83,7 @@ void			free_array(char **array);
 void			free_stack(t_stack *stack);
 int				get_max_bits(int size);
 //validate
+long			ft_atol(const char *str);
 int				count_arg(char **array);
 int				check_doubles(char **argv);
 int				check_nbr(char *argv);

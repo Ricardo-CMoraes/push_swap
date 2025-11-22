@@ -6,7 +6,7 @@
 /*   By: rida-cos <rida-cos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 22:22:35 by rdcm              #+#    #+#             */
-/*   Updated: 2025/11/22 12:21:35 by rida-cos         ###   ########.fr       */
+/*   Updated: 2025/11/22 12:41:18 by rida-cos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@ void	sa_rra(t_stack *stack)
 {
 	if (stack->tail->index == 0)
 	{
-		sa(stack);
-		rra(stack);
+		sa(stack, 1);
+		rra(stack, 1);
 	}
 	else if (stack->tail->index == 1)
 	{
-		rra(stack);
-		sa(stack);
+		rra(stack, 1);
+		sa(stack, 1);
 	}
 }
 
@@ -31,16 +31,16 @@ void	sort_3(t_stack *stack, int n_elem)
 	if (stack->head->index == n_elem - 1)
 	{
 		if (stack->tail->index == n_elem - 2)
-			ra(stack);
+			ra(stack, 1);
 		else if (stack->tail->index == n_elem - 3)
 			sa_rra(stack);
 	}
 	else if (stack->head->index == n_elem - 2)
 	{
 		if (stack->tail->index == n_elem - 1)
-			sa(stack);
+			sa(stack, 1);
 		else if (stack->tail->index == n_elem - 3)
-			rra(stack);
+			rra(stack, 1);
 	}
 	else if (stack->head->index == n_elem - 3)
 	{
@@ -68,13 +68,13 @@ void	push_target_to_b(t_stack *stack_a, t_stack *stack_b, int target)
 	if (pos <= (rotations / 2))
 	{
 		while (pos--)
-			ra(stack_a);
+			ra(stack_a, 1);
 	}
 	else
 	{
 		rotations = rotations - pos;
 		while (rotations--)
-			rra(stack_a);
+			rra(stack_a, 1);
 	}
 	pb(stack_a, stack_b);
 }
@@ -86,7 +86,7 @@ void	sort_cases(t_stack *stack_a, t_stack *stack_b)
 	else if (stack_a->size == 2)
 	{
 		if (stack_a->head->index > stack_a->tail->index)
-			sa(stack_a);
+			sa(stack_a, 1);
 	}
 	else if (stack_a->size == 3)
 		sort_3(stack_a, 3);
