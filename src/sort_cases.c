@@ -6,7 +6,7 @@
 /*   By: rida-cos <rida-cos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 22:22:35 by rdcm              #+#    #+#             */
-/*   Updated: 2025/11/22 12:41:18 by rida-cos         ###   ########.fr       */
+/*   Updated: 2025/11/23 09:23:58 by rida-cos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,8 @@ void	sort_cases(t_stack *stack_a, t_stack *stack_b)
 {
 	if (stack_a->size == 1)
 		return ;
+	if (is_sorted(stack_a))
+		return ;
 	else if (stack_a->size == 2)
 	{
 		if (stack_a->head->index > stack_a->tail->index)
@@ -116,5 +118,9 @@ void	sort(t_stack *stack_a, t_stack *stack_b)
 	if (stack_a->size <= 5)
 		sort_cases(stack_a, stack_b);
 	else
+	{
+		if (is_sorted(stack_a))
+			return ;
 		radix_sort(stack_a, stack_b);
+	}
 }

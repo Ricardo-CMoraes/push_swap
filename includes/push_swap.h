@@ -6,7 +6,7 @@
 /*   By: rida-cos <rida-cos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 22:39:55 by rdcm              #+#    #+#             */
-/*   Updated: 2025/11/22 16:06:48 by rida-cos         ###   ########.fr       */
+/*   Updated: 2025/11/23 09:17:08 by rida-cos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void			stack_add(int value, t_stack *stack);
 void			set_stack_null(t_stack *stack);
 t_stack			*init_stack(int argc, char **argv);
 //radix_sort.c
+int				is_sorted(t_stack *stack);
 void			radix_sort(t_stack *a, t_stack *b);
 //sort_cases.c
 void			sa_rra(t_stack *stack);
