@@ -6,12 +6,11 @@
 /*   By: rida-cos <rida-cos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 18:36:26 by rdcm              #+#    #+#             */
-/*   Updated: 2025/11/23 09:14:05 by rida-cos         ###   ########.fr       */
+/*   Updated: 2025/11/23 11:25:19 by rida-cos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 int	is_sorted(t_stack *stack)
 {

@@ -46,7 +46,7 @@ re: fclean all
 
 test:
 	@ARGS=$$(shuf -i 1-10000 -n $(N) | tr '\n' ' ' | sed 's/ $$//'); \
-	echo "Testing with $(N) numbers:"; \
+	echo "Testing with $(N) numbers: $$ARGS"; \
 	echo "Total of commands:"; \
 	./push_swap "$$ARGS" | wc -l; \
 	echo "Results:"; \

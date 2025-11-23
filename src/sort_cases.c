@@ -6,20 +6,20 @@
 /*   By: rida-cos <rida-cos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 22:22:35 by rdcm              #+#    #+#             */
-/*   Updated: 2025/11/23 09:23:58 by rida-cos         ###   ########.fr       */
+/*   Updated: 2025/11/23 11:20:34 by rida-cos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa_rra(t_stack *stack)
+void	sa_rra(t_stack *stack, int n_elem)
 {
-	if (stack->tail->index == 0)
+	if (stack->tail->index == n_elem - 3)
 	{
 		sa(stack, 1);
 		rra(stack, 1);
 	}
-	else if (stack->tail->index == 1)
+	else if (stack->tail->index == n_elem - 2)
 	{
 		rra(stack, 1);
 		sa(stack, 1);
@@ -33,7 +33,7 @@ void	sort_3(t_stack *stack, int n_elem)
 		if (stack->tail->index == n_elem - 2)
 			ra(stack, 1);
 		else if (stack->tail->index == n_elem - 3)
-			sa_rra(stack);
+			sa_rra(stack, n_elem);
 	}
 	else if (stack->head->index == n_elem - 2)
 	{
@@ -45,7 +45,7 @@ void	sort_3(t_stack *stack, int n_elem)
 	else if (stack->head->index == n_elem - 3)
 	{
 		if (stack->tail->index == n_elem - 2)
-			sa_rra(stack);
+			sa_rra(stack, n_elem);
 		else if (stack->tail->index == n_elem - 1)
 			return ;
 	}
@@ -65,18 +65,19 @@ void	push_target_to_b(t_stack *stack_a, t_stack *stack_b, int target)
 		pos++;
 	}
 	rotations = stack_a->size;
-	if (pos <= (rotations / 2))
+	if (pos <= (rotations / 2) && !(is_sorted(stack_a)))
 	{
 		while (pos--)
 			ra(stack_a, 1);
 	}
-	else
+	else if (pos > (rotations / 2) && !(is_sorted(stack_a)))
 	{
 		rotations = rotations - pos;
 		while (rotations--)
 			rra(stack_a, 1);
 	}
-	pb(stack_a, stack_b);
+	if (!(is_sorted(stack_a)))
+		pb(stack_a, stack_b);
 }
 
 void	sort_cases(t_stack *stack_a, t_stack *stack_b)
